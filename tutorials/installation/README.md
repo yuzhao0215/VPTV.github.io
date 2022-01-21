@@ -15,8 +15,8 @@ The installation directory should be C:/boost_1_65_1. If installed to another di
 - [QT5.9.9](https://download.qt.io/archive/qt/5.9/5.9.9/) Download and install qt-opensource-windows-x86-5.9.9.exe. 
 If the download link is not valid, try [these alternative mirrors](https://download.qt.io/archive/qt/5.9/5.9.9/qt-opensource-windows-x86-5.9.9.exe.mirrorlist).
 Note that installation might need a QT account, you can create one during installation. 
-During installation, check the box in image for Visual Studio 2017 version. 
-![qt_installation](../images/0_installation_qt.PNG)
+During installation, check the box in image for Visual Studio 2017 version.  
+ ![qt_installation](./images/0_installation_qt.PNG)
 - [VTK 8.2.0](https://vtk.org/download/) Download and unzip VTK-8.2.0.zip from this website. 
 After unzipping, build VTK library use CMake following this [tutorial](https://vtk.org/Wiki/VTK/Configure_and_Build). Note that the building should be with QT5.
 - [CUDA 10.2](https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exenetwork)
@@ -30,4 +30,7 @@ Download Camera SDK 2.1.1 exe file then install it. This is used to synchronize 
 
 
 ## Build VPTV code
-Download VPTV code from [this repository]().
+Download VPTV code from [this repository](https://github.com/yuzhao0215/VPTV_tutorial).
+Unzip the file to an arbitrary location, e.g. "C:/VPTV". In my case, the location is: "C:\Users\45463\Desktop\vptv_tutorial".
+Make sure all rerequisites packages are correctly installed. 
+
