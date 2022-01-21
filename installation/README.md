@@ -27,10 +27,31 @@ I found this [tutorial](https://thinkinfi.com/install-opencv-gpu-with-cuda-for-w
 Also, do not forget to check WITH_VTK and WITH_QT boxes in CMake for QT and VTK support.
 - [NP_CAMERASDK](https://www.optitrack.com/support/downloads/developer-tools.html)
 Download Camera SDK 2.1.1 exe file then install it. This is used to synchronize Optitrack Cameras and output camera images.
-
+- [LibTorch](https://pytorch.org/get-started/locally/) 
+Download and unzip LibTorch (C++ version of PyTorch) for Windows and CUDA 10.2.
 
 ## Build VPTV code
 Download VPTV code from [this repository](https://github.com/yuzhao0215/VPTV_tutorial).
 Unzip the file to an arbitrary location, e.g. "C:/VPTV". In my case, the location is: "C:\Users\45463\Desktop\vptv_tutorial".
-Make sure all rerequisites packages are correctly installed. 
+Make sure all rerequisites packages are correctly installed. To build the VPTV executable:
+
+1. Open CMake and select the directories for source code and the Visual Studio project.
+Then click "Configure" button.  
+![0_cmake](./images/1_cmake.PNG)
+2. Make sure the generator is Visual Studio 2017, and the machine type is x64.  
+![1_cmake](./images/2_cmake.PNG)
+3. If there is a error message, it is fine. It's probably CMake cannot find some packages.   
+![2_cmake](./images/3_cmake.PNG)  
+By looking at the error message, we can see that CMake cannot find OpenCV, and therefore OpenCV_DIR is not defined.  
+Type in where the OpenCV's build folder is, in my case it is "C:/OpenCV/opencv-4.1.1/opencv-4.1.1/build". 
+After entering the OpenCV_DIR mannually, click "Configure" again.  
+![3_cmake](./images/4_cmake.PNG)  
+The error can also happen for LibTorch and YAML. Using the following setup if there is any error. 
+Remember to replace the root directories to your own. 
+| Name      | Value |
+| ----------- | ----------- |
+| TORCH_LIBRARY      | C:/libtorch/libtorch/lib/torch.lib       |
+| YAMLCPP_HAVE_H   | TRUE        |
+|YAMLCPP_H_INCLUDE_DIR |C:/YAML_CPP 0.6/include |
+|YAMLCPP_LIBRARY|C:/YAML_CPP 0.6/lib/yaml-cpp.lib|
 
