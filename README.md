@@ -39,7 +39,7 @@ Make sure all rerequisites packages are correctly installed. To build the VPTV e
 1. Open CMake and select the directories for source code and the Visual Studio project.
 Then click "Configure" button.  
 	<p align="center">
-	<img width="400" height="300" src="./images/1_cmake.PNG">  
+	<img width="400" height="250" src="./images/1_cmake.PNG">  
 	</p>
 2. Make sure the generator is Visual Studio 2017, and the machine type is x64.
 	<p align="center">  
@@ -73,7 +73,7 @@ After the building process finished, right click "Solution 'LPT' " and click "pr
 Change the single start project to "app-LPT_Virtual". Then press "Control" + "F5" to run the virtual test of VPTV.
 If everything goes well, the Virtual VPTV application should be opened.  
 <p align="center"> 
-<img width="400" height="300" src="./images/6_virtual_VPTV.PNG">  
+<img width="400" height="200" src="./images/6_virtual_VPTV.PNG">  
 </p>
 
 ## Conclusion
