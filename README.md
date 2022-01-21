@@ -38,7 +38,9 @@ Make sure all rerequisites packages are correctly installed. To build the VPTV e
 
 1. Open CMake and select the directories for source code and the Visual Studio project.
 Then click "Configure" button.  
+<p align="center">
 <img align="left" width="400" height="300" src="./images/1_cmake.PNG">  
+</p>
 2. Make sure the generator is Visual Studio 2017, and the machine type is x64.  
 <img align="left" width="400" height="300" src="./images/2_cmake.PNG">  
 3. If there is a error message, it is fine. It's probably CMake cannot find some packages.   
