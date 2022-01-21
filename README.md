@@ -65,7 +65,7 @@ Then click "Configure" button.
 4. When the Configuration is done, click "Generate" to generate the Visual Studio Project.
 5. Click "Open Project" to open Visual Studio Project. Following instructions in the following image.  
 <p align="center">
-<img width="400" height="50" src="./images/5_cmake.PNG">  
+<img width="400" height="250" src="./images/5_cmake.PNG">  
 </p>  
 
 ## Test with virtual VPTV application
@@ -76,3 +76,5 @@ If everything goes well, the Virtual VPTV application should be opened.
 <img width="400" height="300" src="./images/6_virtual_VPTV.PNG">  
 </p>
 
+## Conclusion
+By installing prerequisites packages and cmake building, now you can use cameras to conduct VPTV measurement.
