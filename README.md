@@ -41,14 +41,20 @@ Then click "Configure" button.
 <p align="center">
 <img width="400" height="300" src="./images/1_cmake.PNG">  
 </p>
-2. Make sure the generator is Visual Studio 2017, and the machine type is x64.  
-<img align="left" width="400" height="300" src="./images/2_cmake.PNG">  
-3. If there is a error message, it is fine. It's probably CMake cannot find some packages.   
-<img align="left" width="400" height="100" src="./images/3_cmake.PNG">  
+2. Make sure the generator is Visual Studio 2017, and the machine type is x64.
+<p align="center">  
+<img width="400" height="300" src="./images/2_cmake.PNG">  
+</p>
+3. If there is a error message, it is fine. It's probably CMake cannot find some packages.
+<p align="center">   
+<img width="400" height="100" src="./images/3_cmake.PNG">  
+</p>
 By looking at the error message, we can see that CMake cannot find OpenCV, and therefore OpenCV_DIR is not defined.  
 Type in where the OpenCV's build folder is, in my case it is "C:/OpenCV/opencv-4.1.1/opencv-4.1.1/build". 
-After entering the OpenCV_DIR mannually, click "Configure" again.  
-<img align="left" width="400" height="150" src="./images/4_cmake.PNG">  
+After entering the OpenCV_DIR mannually, click "Configure" again.
+<p align="center">  
+<img width="400" height="150" src="./images/4_cmake.PNG">  
+</p>
 The error can also happen for LibTorch and YAML. Using the following setup if there is any error. 
 Remember to replace the root directories to your own. 
 	- **TORCH_LIBRARY**:  C:/libtorch/libtorch/lib/torch.lib
@@ -57,12 +63,15 @@ Remember to replace the root directories to your own.
 	- **YAMLCPP_LIBRARY**: C:/YAML_CPP 0.6/lib/yaml-cpp.lib  
 4. When the Configuration is done, click "Generate" to generate the Visual Studio Project.
 5. Click "Open Project" to open Visual Studio Project. Following instructions in the following image.  
-<img align="left" width="400" height="250" src="./images/5_cmake.PNG">  
+<p align="center">
+<img width="400" height="250" src="./images/5_cmake.PNG">  
+</p>  
 
 ## Test with virtual VPTV application
 After the building process finished, right click "Solution 'LPT' " and click "properties".
 Change the single start project to "app-LPT_Virtual". Then press "Control" + "F5" to run the virtual test of VPTV.
 If everything goes well, the Virtual VPTV application should be opened.  
-<img align="left" width="400" height="300" src="./images/6_virtual VPTV.PNG">  
-
+<p align="center"> 
+<img width="400" height="300" src="./images/6_virtual_VPTV.PNG">  
+</p>
 
