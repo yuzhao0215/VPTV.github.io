@@ -37,21 +37,23 @@ Make sure all rerequisites packages are correctly installed. To build the VPTV e
 
 1. Open CMake and select the directories for source code and the Visual Studio project.
 Then click "Configure" button.  
-![0_cmake](./images/1_cmake.PNG)
+<img align="left" width="400" height="300" src="./images/1_cmake.PNG">
 2. Make sure the generator is Visual Studio 2017, and the machine type is x64.  
-![1_cmake](./images/2_cmake.PNG)
+<img align="left" width="400" height="300" src="./images/2_cmake.PNG">
 3. If there is a error message, it is fine. It's probably CMake cannot find some packages.   
-![2_cmake](./images/3_cmake.PNG)  
+<img align="left" width="400" height="300" src="./images/3_cmake.PNG">  
 By looking at the error message, we can see that CMake cannot find OpenCV, and therefore OpenCV_DIR is not defined.  
 Type in where the OpenCV's build folder is, in my case it is "C:/OpenCV/opencv-4.1.1/opencv-4.1.1/build". 
 After entering the OpenCV_DIR mannually, click "Configure" again.  
-![3_cmake](./images/4_cmake.PNG)  
+<img align="left" width="400" height="300" src="./images/4_cmake.PNG">  
 The error can also happen for LibTorch and YAML. Using the following setup if there is any error. 
-Remember to replace the root directories to your own. 
-| Name      | Value |
-| ----------- | ----------- |
-| TORCH_LIBRARY      | C:/libtorch/libtorch/lib/torch.lib       |
-| YAMLCPP_HAVE_H   | TRUE        |
-|YAMLCPP_H_INCLUDE_DIR |C:/YAML_CPP 0.6/include |
-|YAMLCPP_LIBRARY|C:/YAML_CPP 0.6/lib/yaml-cpp.lib|
+Remember to replace the root directories to your own.  
+| Name      | Value |  
+| ----------- | ----------- |  
+| TORCH_LIBRARY      | C:/libtorch/libtorch/lib/torch.lib |  
+| YAMLCPP_HAVE_H   | TRUE        |  
+| YAMLCPP_H_INCLUDE_DIR | C:/YAML_CPP 0.6/include |  
+| YAMLCPP_LIBRARY | C:/YAML_CPP 0.6/lib/yaml-cpp.lib |  
+4. When the Configuration is done, click "Generate" to generate the Visual Studio Project.
+5. Click "Open Project" to open Visual Studio Project.
 
