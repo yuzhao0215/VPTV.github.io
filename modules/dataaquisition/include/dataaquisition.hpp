@@ -237,6 +237,12 @@ namespace lpt {
 		
 		vector<CameraLibrary::Camera*>& getOptitrackCameras() { return optitrack_cameras; }
 
+		/*----------------------------------*/
+		// added by yu
+		cModuleSync* getSyncModule() { return sync; }
+		vector<CameraLibrary::Frame*>& getOptitrackFrames() { return optitrack_frames; }
+		/*----------------------------------*/
+
 		//----CALL BACK FUNCTIONS-----
 		friend void callbackSetVideoType( int mode, void* data );
 		friend void callbackSetThreshold( int value, void* data );
