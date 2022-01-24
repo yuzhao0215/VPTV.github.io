@@ -8,9 +8,9 @@ in terms of synchronization, camera frame rate, exposure, and image segmentation
  A test using stopwatch will be built to test if eight cameras capture images at the
  same instant. If synchronized correctly, all images will show the same time stamp.
 
-## Code Finished
+## Code
 I have implemented the code for synchronization of eight cameras.
-The code can be found [here](https://github.com/yuzhao0215/VPTV_tutorial/test).
+The code can be found [here](https://github.com/yuzhao0215/VPTV_tutorial/tree/master/test).
 
 ## TODO
 1. Please read the code and compile it on your local desktop. 
