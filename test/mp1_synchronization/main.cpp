@@ -15,14 +15,16 @@ using namespace std;
 void aquireImageData(std::shared_ptr < lpt::SharedObjects > shared_objects,
 	std::shared_ptr < lpt::Optitrack > camera_system,
 	lpt::concurrent_queue < lpt::ImageFrameGroup >& frame_queue,
-	boost::atomic<int>& frame_count)
+	int& frame_count)
 {
 	cout << "inside acquire image data" << endl;
 
 	auto sync = camera_system->getSyncModule();
 	auto& cameras = shared_objects->cameras;
+	boost::posix_time::microseconds sleeptime(100);
 
-	while (camera_system->areCamerasRunning() && frame_count < 1000) {
+	while (camera_system->areCamerasRunning()) {
+		cout << "inside acquire image data loop " << endl;
 		lpt::ImageFrameGroup frame_group(cameras.size());
 
 		// grab frame group
@@ -62,19 +64,40 @@ void aquireImageData(std::shared_ptr < lpt::SharedObjects > shared_objects,
 			else {
 				return;
 			}
-
-			++frame_count;
-
 		}
+		else
+			boost::this_thread::sleep(sleeptime);
+
+		++frame_count;
+
 	}
+}
+
+void callbackStopCameras(int state, void* data) {
+	lpt::Optitrack* system = static_cast<lpt::Optitrack*> (data);
+	if (system) {
+		system->shutdown();
+	}
+	else
+		cout << "---INVALID pointer to CameraSystem:  Cannot Stop!!" << endl;
 }
 
 int main(){
 	std::shared_ptr < lpt::SharedObjects >	shared_objects = make_shared < lpt::SharedObjects >();
-	std::shared_ptr < lpt::Optitrack >	camera_system = lpt::Optitrack::create();;
+	std::shared_ptr < lpt::Optitrack >	camera_system = lpt::Optitrack::create();
 	camera_system->setSharedObjects(shared_objects);
 
-	camera_system->initializeCameras();
+	bool cameras_ok = false;
+
+	if (camera_system)
+		cameras_ok = camera_system->initializeCameras();
+
+	if (!cameras_ok) {
+		cout << "Cameras NOT initialized, exiting." << endl;
+		return 0;
+	}
+
+	this_thread::sleep_for(chrono::milliseconds(3000));
 	
 	// initialize control window 	
 	auto& cameras = shared_objects->cameras;
@@ -84,35 +107,36 @@ int main(){
 		int camera_id = i;
 		optitrack_cameras[camera_id]->SetVideoType(Core::MJPEGMode);
 		optitrack_cameras[camera_id]->SetExposure(4000);
-
 	}
-
-	this_thread::sleep_for(chrono::milliseconds(3000));
 	
 	if (cameras.empty()) {
 		cout << "Could not initialize control window: No cameras found" << endl;
 		return 0;
 	}
+
 	cout << "Initializing Control Window with " << cameras.size() << " Cameras" << endl;
 	// Set up display window using opencv
 	string null;
+	void* camerasys_void_ptr = static_cast<void*> (&*camera_system);
+
 	int camera_displayed = 0;       // index of initial camera to be displayed in opencv window
 	cv::namedWindow(camera_system->getWindowName());
 	cv::createTrackbar("Camera", camera_system->getWindowName(), &camera_displayed, static_cast<int>(cameras.size() - 1), 0);
+	cv::createButton("Stop Cameras", callbackStopCameras, camerasys_void_ptr, cv::QT_PUSH_BUTTON, 0);
 
-	//int frame_count = 0;
-	boost::atomic<int> frame_count(0);
+	int frame_count = 0;
 
 	int queue_capacity = 1000;
 	string window_name = camera_system->getWindowName();
 	lpt::concurrent_queue < lpt::ImageFrameGroup >	frame_queue;
 	frame_queue.setCapacity(queue_capacity);
 
+	this_thread::sleep_for(chrono::milliseconds(3000));
 
 	boost::thread imagegrabber_thread = boost::thread(aquireImageData, shared_objects, camera_system, boost::ref(frame_queue), boost::ref(frame_count));
 	cout << "-----------thread for acquire ImageData is created!" << endl;
 	
-	this_thread::sleep_for(chrono::milliseconds(3000));
+	this_thread::sleep_for(chrono::milliseconds(300));
 
 	cout << "queue size is: " << frame_queue.size() << endl;
 

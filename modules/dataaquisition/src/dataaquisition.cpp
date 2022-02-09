@@ -873,7 +873,7 @@ void StreamingPipeline::initializeControlWindow() {
 
 	void* system_void_ptr = static_cast<void*> ( this );
 	void* recorder_void_ptr = static_cast<void*> ( this->recorder.get() );
-	cv::namedWindow( camera_system->getWindowName() );
+	cv::namedWindow( camera_system->getWindowName(), cv::WINDOW_NORMAL );
 	cv::createTrackbar("Camera", camera_system->getWindowName() , &camera_displayed, static_cast<int>(cameras.size() - 1), 0);
 	
 	cv::createButton("Record Video Clip", callbackRecordVideo, recorder_void_ptr, cv::QT_PUSH_BUTTON, 0 );

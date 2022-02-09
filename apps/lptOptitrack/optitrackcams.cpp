@@ -32,8 +32,8 @@ int main(int argc, char** argv) {
 	//string camera_pairs_file = input + "03_01_2021_6_pairs_test.yaml"; //"10_31_2020_6_pairs_test.yaml";//"05_20_2020topview_left4_pairs.yaml";//"02_20_2020_8_pairs.yaml";//"01_03_2020_8_pairs.yaml";//"12_31_2019_8_pairs.yaml";//"11_02_2019_8_pairs.yaml";//"10_31_2019_8pairs.yaml";//"11_02_25_2019topview_outside_4_pairs.yaml";//"09_28_2019_8pairs.yaml";//"09_25_2019topview_right4_pairs.yaml";//"09_28_2019_8pairs.yaml";//"09_25_2019topview_left4_pairs.yaml";//"09_26_2019_8pairs.yaml";//"09_25_2019topview_left4_pairs.yaml";//////"09_17_2019topview_pairs.yaml";//"08_31_2019_8pairs.yaml";//"8pairs_08_28_2019.yaml";//"right_4_pairs.yaml";//"07_19_2019pairs.yaml";//"8_pairs.yaml";////"07_08_2019pairs.yaml";//"4_cameras_pairs_04_16_2019.yaml";//"4_pairs_11_12.yaml";//"4_pairs_11_3.yaml";//"8_pairs.yaml"; //"../../../data/pivstd/4cams/camera_pairs.yaml"; ////4_pairs.yaml
 	//
 
-	string cameras_file = input + "cameras.yaml";
-	string camera_pairs_file = input + "pairs.yaml";
+	string cameras_file = input + "cameras_parameters.yaml";
+	string camera_pairs_file = input + "camera_pairs_parameters.yaml";
 
 	//string cameras_file = input + "cameras_calibrated.yaml";
 	//string camera_pairs_file = input + "pairs_calibrated.yaml";
