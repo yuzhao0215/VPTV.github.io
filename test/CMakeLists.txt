@@ -1,1 +1,2 @@
 add_subdirectory(mp1_synchronization)
+add_subdirectory(mp3_imageProcessing)
