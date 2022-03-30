@@ -12,7 +12,7 @@ The last dimension data of the matching array was a matching list that contained
 candidate particles in the target camera that could correspond to Particle i in the source camera.
 
 <p align="center">  
-<img width="400" height="200" src="./images/mp4/correspondence_array.png">  
+<img width="400" height="200" src="../../images/mp4/correspondence_array.png">  
 </p>
 
 After the matching array was initiated, all possible two-camera correspondence were determined in the first stage. 
@@ -28,7 +28,7 @@ are evaluated to determine if they satisfy the four-camera epipolar constraints.
 A four-camera correspondence {X<sub>A,i</sub>,X<sub>B,j</sub>,X<sub>C,k</sub>,X<sub>D,l</sub> } is determined if it satisfies the following equation.
 
 <p align="center">  
-<img width="200" height="220" src="./images/mp4/equation.PNG">  
+<img width="200" height="220" src="../../images/mp4/equation.PNG">  
 </p>
 
 ## Dataset
