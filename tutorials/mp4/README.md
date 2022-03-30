@@ -1,4 +1,4 @@
-# [MP4: Correspondence](https://yuzhao0215.github.io/VPTV.github.io/)
+# [MP4: Correspondence](https://github.com/yuzhao0215/VPTV_tutorial/tree/master/test/mp4_correspondence)
 In 3D reconstruction, [correspondence](https://en.wikipedia.org/wiki/Correspondence_problem) identifies which parts of one image correspond to which parts of another 
 image with different viewing directions or camera parameters. 
 In this mini project, the criterion to determine the spatial correspondence of particles is [epipolar geometry constraint](https://en.wikipedia.org/wiki/Epipolar_geometry). 
